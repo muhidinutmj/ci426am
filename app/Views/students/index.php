@@ -6,7 +6,7 @@
         <h2>Daftar Mahasiswa</h2>
     </div>
     <div class="col-md-2 text-end">
-        <a href="/students/create" class="btn btn-primary">Tambah Mahasiswa</a>
+        <a href="<?= base_url('students/create') ?>" class="btn btn-primary">Tambah Mahasiswa</a>
     </div>
     <table class="table table-striped table-bordered">
         <thead>
@@ -24,9 +24,9 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($students as $student): ?>
+            <?php foreach ($students as $no => $student): ?>
             <tr>
-                <td><?= esc($student['id']) ?></td>
+                <td><?= esc($no+1) ?></td>
                 <td><?= esc($student['nim']) ?></td>
                 <td><?= esc($student['name']) ?></td>
                 <td><?= esc($student['gender']) ?></td>
@@ -36,9 +36,9 @@
                 <td><?= esc($student['phone']) ?></td>
                 <td><?= esc($student['email']) ?></td>
                 <td>
-                    <a href="/students/<?= esc($student['id']) ?>" class="btn btn-info btn-sm">Lihat</a>
-                    <a href="/students/<?= esc($student['id']) ?>/edit" class="btn btn-warning btn-sm">Edit</a>
-                    <form action="/students/<?= esc($student['id']) ?>" method="post" style="display:inline;">
+                    <a href="<?= base_url('students/' . esc($student['id'])) ?>" class="btn btn-info btn-sm">Lihat</a>
+                    <a href="<?= base_url('students/' . esc($student['id']) . '/edit') ?>" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="<?= base_url('students/' . esc($student['id'])) ?>" method="post" style="display:inline;">
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus mahasiswa ini?')">Hapus</button>
                     </form>

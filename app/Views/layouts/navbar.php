@@ -7,10 +7,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" aria-current="page" href="<?= base_url() ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/students">Students</a>
+                    <a class="nav-link active" href="<?= base_url('students') ?>">Students</a>
                 </li>
             </ul>
         </div>

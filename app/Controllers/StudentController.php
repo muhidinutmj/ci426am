@@ -13,4 +13,19 @@ class StudentController extends BaseController
         $students = $model->findAll();
         return view('students/index', ['students' => $students]);
     }
+
+    public function show($id)
+    {
+        $model = new \App\Models\Student();
+        $student = $model->find($id);
+        if (!$student) {
+            return redirect()->to('/students')->with('error', 'Mahasiswa tidak ditemukan');
+        }
+        return view('students/show', ['student' => $student]);
+    }
+
+    public function create()
+    {
+        return view('students/create');
+    }
 }
